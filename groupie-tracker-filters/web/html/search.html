@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style/home.css">
+    <link rel="icon"  href="/style/img/favicon.ico"> 
+    <title>GROUPIE-TRACKER</title>
+</head>
+    <body>
+        <header>
+            <a class="groupiebutton" href="/" >              
+                <img class="img_icon" src="../style/img/re.png">
+                <h1>Groupie tracker</h1> 
+            </a> 
+            </header>
+            <div class = "allArtist">
+                <form action="/search" method="POST" autocomplete="off">
+                    <div class="form" id="searchbar">
+                        <input class="text" list="artist-list" type="search" name="text" placeholder="Search...">
+                    <datalist id="artist-list">
+                        {{range .AllArtist}}
+                        <option value="{{.Name}}"><a href="http://localhost:4000/artist/{{.Id}}">{{.Name}} - artist/band</a></option>
+                        <option value="{{.FirstAlbum}}">{{.FirstAlbum}} - first album release</option>
+                        <option value="{{.CreationDate}}">{{.CreationDate}} - creation date</option>
+                        {{range .Members}}
+                        <option value="{{.}}">{{.}} - member</option>
+                        {{end}}
+                        {{ range $locations, $dates:= .DatesLocations}}
+                        <option value="{{$locations}}">{{$locations}}{{$dates}} - concert</option>
+                        {{end}}
+                        {{end}}
+                    </datalist>
+                    
+                    <button type="submit" class="search-button">
+                        <img class="search-icon" src="../style/img/icon.png">
+                    </button>
+                </div>
+            </form>
+                <main>
+                {{range .FoundArtist}}
+                <article>
+                    <a href="http://localhost:4000/artist/{{.Id}}">
+                        <div class="artist" style="background-image: url({{.Image}});">
+                            <div class = "box">
+                                <p style="text-align:center;">{{.Name}}</p>
+                            </div>
+                        </div>
+                    </a>
+                </article>
+                {{end}}
+            </main>
+        </div>
+    </body>
+</html>

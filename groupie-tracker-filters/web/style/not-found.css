@@ -1,0 +1,32 @@
+html {
+    position: relative;
+    min-height: 100%;
+}
+body{
+    /* background-color: red; */
+    background-image: url("/style/img/21.jpg");
+}
+h1{
+    color:yellow;
+    font-size: 40px;
+    margin-bottom: 30px;
+    }
+    .groupiebutton{
+    text-decoration: none; 
+    font-size: 40px; 
+    font-family: arial;
+    margin: auto;
+    min-width: 400px;
+    width: 300px;
+    }
+    .img_icon{
+    width: 90px;
+    border-radius: 50%;
+    }
+    h1, .img_icon{
+    display:inline-block;
+    vertical-align: middle;
+    }
+    .info {
+        color: yellow;
+    }

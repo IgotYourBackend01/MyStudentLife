@@ -1,0 +1,62 @@
+
+.grid {
+    background-image: url('fon.jpg');
+	width: 600px;
+	height: 600px;
+	border: solid black 1px;
+    margin-left: 110px;
+	display: flex;
+	flex-wrap: wrap;
+    background-size: auto;
+    float: left;
+}
+.border-left {
+    width: 110px;
+    height: 790px;
+    position:  absolute;
+    color: black;
+    z-index: +2;
+}
+.border-right {
+    width: 80px;
+    height: 790px;
+    position: absolute;
+    background-color: white;
+    z-index: +2;
+    margin-left: 800px;
+}
+.menu {
+    position: relative;
+    float: right;
+    top: 50%;
+}
+.grid div {
+	width: 40px;
+	height: 40px;
+}
+.invader {
+    background-image: url('invaders.png');
+    background-size: cover;
+    /* background-image: url('invaders.png'); */
+	/* border-radius: 10px; */
+}
+.Hearts{
+    position: absolute;
+    top: 350px; left: 70px; 
+}
+.Hearts img{
+    width: 60px;
+}
+.shooter {
+    background-image: url('shooter.png');
+    /* Установите размеры и другие стили для пушки */
+    background-size:cover;
+  }
+.laser {
+	background-image: url('laser.png');
+    background-size: cover;
+}
+
+.boom {
+	background-color: red;
+}

@@ -1,0 +1,72 @@
+html{
+position:relative;
+min-height: 100%;
+}
+body{
+text-align: center;
+background: url(./img/21.jpg);
+/* background-attachment: fixed;  */
+}
+h1{
+color:yellow;
+font-size: 40px;
+margin-bottom: 30px;
+}
+.groupiebutton{
+text-decoration: none; 
+font-size: 40px; 
+font-family: arial;
+margin: auto;
+min-width: 400px;
+width: 300px;
+}
+.img_icon{
+width: 90px;
+border-radius: 50%;
+}
+h1, .img_icon{
+display:inline-block;
+vertical-align: middle;
+}
+.info, .image{
+  vertical-align: top;
+  width: 40%;
+  display: inline-block;
+  align-content: flex-end;
+
+}
+.artist-page{
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  width: 80%;
+  text-align: center;
+  display: inline-block;
+  min-width: 320px;
+}
+
+.artistimage{
+  height: 50%;
+  box-shadow: 0 0 10px;
+  min-width: 100px;
+  
+}
+.info2 {
+  margin: auto;
+}
+.members, .creation, .firstalbum, .relation{
+  font-size: 20px;
+  vertical-align: top;
+  border-radius: 10px;
+}
+@media screen and (max-width:700px){
+   
+  .artistimage{
+      width:100%;
+      margin-left: 20px;
+
+  }
+  .members, .creation, .firstalbum, .relation{
+      font-size: 15px;
+  }
+}

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/style/home.css">
+        <link rel="icon"  href="/style/img/favicon.ico"> 
+        <title>GROUPIE-TRACKER</title>
+    </head>
+        <body>
+            <header>
+                <a class="groupiebutton" href="/" >              
+                   <img class="img_icon" src="../style/img/re.png">
+                   <h1>Groupie tracker</h1> 
+                </a> 
+                <form action="/filter" method="post" autocomplete="off">
+                    <div class="filter">
+        
+                        <h4 class="member_h">Members:</h4>
+                        <div class="member">
+                       <input type="checkbox" value="1" name="membersNum" id="one"> 
+                       <label for="one">1</label>
+                       <input type="checkbox" value="2" name="membersNum" id="two"> 
+                       <label for="two">2</label>
+                       <input type="checkbox" value="3" name="membersNum" id="three"> 
+                       <label for="three">3</label>
+                       <input type="checkbox" value="4" name="membersNum" id="four"> 
+                       <label for="four">4</label>
+                       <input type="checkbox" value="5" name="membersNum" id="five"> 
+                       <label for="five">5</label>
+                       <input type="checkbox" value="6" name="membersNum" id="six"> 
+                       <label for="six">6</label>
+                       <input type="checkbox" value="7" name="membersNum" id="seven"> 
+                       <label for="seven">7</label>
+                       <input type="checkbox" value="8" name="membersNum" id="eight"> 
+                       <label for="eight">8</label>
+                    </div>
+                    <h4>Creation date</h4>
+                    <div class="creation">
+                        <div class="minC">
+                            <h5>Min</h5>
+                            <input type="range" min="1955" max="2023" value="1955" name="minCreate" oninput="this.nextElementSibling.value = this.value">
+                            <output>1955</output>
+                        </div>
+                        <div class="maxC">
+                            <h5>Max</h5>
+                            <input type="range" min="1955" max="2023" value="2023" name="maxCreate" oninput="this.nextElementSibling.value = this.value">
+                            <output>2023</output>
+                        </div>
+                    </div>
+                    <h4>First album</h4>
+                    <div class="firstAlbum">
+                        <div class="minF">
+                            <h5>Min</h5>
+                            <input type="range" min="1955" max="2023" value="1955" name="minFirst" oninput="this.nextElementSibling.value = this.value">
+                            <output>1955</output>
+                        </div>
+                        <div class="maxF">
+                            <h5>Max</h5>
+                            <input type="range" min="1955" max="2023" value="2023" name="maxFirst" oninput="this.nextElementSibling.value = this.value">
+                            <output>2023</output>
+                        </div>
+                    </div>
+                    <div class="locations">
+                        <input class="inputLocation" list="locations-list" type="search" name="inputLocation" placeholder="Location...">
+                        <datalist id="locations-list">
+                            {{range .}}
+                            {{ range $locations, $dates:= .DatesLocations}}
+                            <option value="{{$locations}}">{{$locations}} - concert</option>
+                            {{end}}
+                            {{end}}
+                        </datalist>
+                    </div>
+                    <button type="submit" class="search-button">
+                        Submit
+                    </button>
+                </div>
+                </form>
+             </header>
+             <div class = "allArtist">
+                    <form action="/search" method="POST" autocomplete="off" >
+                       <div class="form" id="searchbar">
+                           <input class="text" list="artist-list" type="search" name="text" placeholder="Search...">
+                       <datalist id="artist-list">
+                           {{range .}}
+                           <option value="{{.Name}}">{{.Name}} - artist/band</option>
+                           <option value="{{.FirstAlbum}}">{{.FirstAlbum}} - first album release</option>
+                           <option value="{{.CreationDate}}">{{.CreationDate}} - creation date</option>
+                           {{range .Members}}
+                           <option value="{{.}}">{{.}} - member</option>
+                           {{end}}
+                           {{ range $locations, $dates:= .DatesLocations}}
+                           <option value="{{$locations}}">{{$locations}}{{$dates}} - concert</option>
+                           {{end}}
+                           {{end}}
+                       </datalist>
+                       
+                       <button type="submit" class="search-button">
+                           <img class="search-icon" src="../style/img/icon.png">
+                       </button>
+                   </div>
+               </form>
+                    <main>
+                    {{range .}}
+                    <article>
+                        <a href="http://localhost:4000/artist/{{.Id}}">
+                            <div class="artist" style="background-image: url({{.Image}});">
+                                <div class = "box">
+                                    <p style="text-align:center;">{{.Name}}</p>
+                                </div>
+                            </div>
+                        </a>
+                    </article>
+                    {{end}}
+                </main>
+            </div>
+            <footer>
+                <h1>@dkazgozh @akaiyrgel</h1>
+                <p>2023 &#169</p>
+             </footer>
+        </body>
+</html>

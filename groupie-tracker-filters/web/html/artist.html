@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style/artist.css">
+    <link rel="icon"  href="/style/img/favicon.ico"> 
+    <title>GROUPIE-TRACKER</title>  
+</head>
+<body>
+    <header>
+        <a class="groupiebutton" href="/" >              
+            <img class="img_icon" src="../style/img/re.png">
+            <h1>Groupie tracker</h1> 
+        </a> 
+    </header>
+    <div class="artist-page">
+        <div>
+            <h1>{{.Name}}</h1>
+        </div>
+        <div class="info">
+            <div class="members">
+                <h2>Members:</h2>
+                {{range .Members}}
+                <p>
+                    {{.}}
+                </p>
+                {{end}}
+            </div>
+            <div class="creation">
+                <h2>Creation date:</h2>
+                <p>{{.CreationDate}}</p>
+            </div>
+            <div class="firstalbum">
+                <h2>First album release:</h2>
+                <p>{{.FirstAlbum}}</p>
+            </div>
+            
+        </div>
+        <div class="image">
+            <img class="artistimage" src="{{ .Image }} "> <br>
+        </div>
+        <div class="relation">
+            <h2>Concerts:</h2>
+            <table class="info2">
+                {{range $location, $dates := .DatesLocations}}
+                <tr>
+                    <td>{{$location}}</td>
+                    <td>
+                        {{range $dates}}
+                        {{.}}<br>
+                        {{end}}
+                    </td>
+                </tr>
+                {{end}}
+            </table>
+        </div>
+    </div>
+    
+</body>
+</html>

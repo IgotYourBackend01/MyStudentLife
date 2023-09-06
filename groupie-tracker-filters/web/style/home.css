@@ -1,0 +1,128 @@
+html{
+    position:relative;
+    min-height: 100%;
+    }
+    body{
+    text-align: center;
+    background: url(./img/21.jpg);
+    /* background-attachment: fixed;  */
+    }
+    h1{
+    color:yellow;
+    font-size: 40px;
+    margin-bottom: 30px;
+    }
+    .groupiebutton{
+    text-decoration: none; 
+    font-size: 40px; 
+    font-family: arial;
+    margin: auto;
+    min-width: 400px;
+    width: 300px;
+    }
+    .img_icon{
+    width: 90px;
+    border-radius: 50%;
+    }
+    h1, .img_icon{
+    display:inline-block;
+    vertical-align: middle;
+    }
+    
+.form{
+    text-align: center;
+    background-color:yellow;
+    height: 45px;
+    width: 275px;
+    border-radius: 50px;
+    display: inline;
+    padding: 10px;
+}
+.search-icon{
+    width: 20px;
+    height: 20px;
+}
+.search-button{
+    width: 35px;
+    height: 35px;
+    all: unset;
+    cursor: pointer;
+}
+.text{
+    all: unset;
+    font-size: 18px;
+    padding: 6px 10px;
+    margin-bottom: 25px;
+}
+footer {
+position: relative;
+margin-top: 15px;
+border:0;
+bottom:0;
+left:0;
+width: 100%;
+color: white;
+}
+footer > h1 {
+text-align: center;
+}
+footer > p{
+text-align: center;
+}
+.allArtist {
+margin-top: 100px;
+margin-bottom: 150px;
+}
+main {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+grid-auto-rows: 247px;
+grid-gap: 20px;
+margin-left:10%;
+margin-right:10%;
+}
+article {
+position: relative; 
+margin: 0;
+}
+article >a {
+text-decoration: none;
+}
+.artist {
+position: relative;
+margin:auto;
+border: 1px solid rgb(4, 5, 1);
+border-width: 5px;
+border-radius: 25px;
+height: 240px;
+width: 240px;
+}
+.artist .box {
+position: relative;
+margin: -1px -1px;
+border: 1px solid;
+border-radius: 20px;
+height: 240px;
+width: 240px;
+}
+.box {
+background: black;
+background-color: black;
+opacity: 0;
+transition: opacity 0.7s;
+}
+.artist p {
+font-weight: bold;
+color: white;
+z-index: 1;
+opacity: 1;
+}
+a:hover .box {
+opacity: 0.5;
+transition: opacity 0.7s;
+}
+a:hover .artist {
+z-index: 2;
+opacity: 1;
+}
+
